@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ThriftChain - Pre-loved Indian ethnic wear and heritage jewellery resale & rental marketplace. Buy outright or rent for your occasion.">
+    <title>ThriftChain | Pre-Loved Ethnic Couture & Jewellery Resale & Rental</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo-group" aria-label="ThriftChain Home">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">Thrift<span>Chain</span></h1>
+                    <p class="brand-tagline">Resale & Rental Vault</p>
+                </div>
+            </a>
+
+            <div class="header-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Andhra Pradesh Curated
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="container">
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <p class="hero-subhead">Authentic • Sustainable • Timeless</p>
+            <h2 class="hero-headline">Every piece has a <em>next chapter.</em></h2>
+            <p class="hero-description">
+                Discover pre-loved South Indian silk sarees, hand-stitched bridal lehengas, and antique temple jewellery. 
+                Choose to <strong>buy forever</strong> or <strong>rent for an event</strong> — right from the same swing tag listing.
+            </p>
+        </section>
+
+        <!-- SEARCH & FILTER CONTROLS PANEL -->
+        <section class="filter-section" aria-label="Catalog Filtering Controls">
+            <div class="filter-card">
+                
+                <!-- Search Input -->
+                <div class="search-box-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-input" 
+                        placeholder="Search title, category, description, or seller (e.g., Kanchipuram, Vijayawada, Gold, Choker)..."
+                        aria-label="Search catalog"
+                    >
+                </div>
+
+                <!-- Filter Controls Grid -->
+                <div class="filter-grid">
+                    
+                    <!-- Category Dropdown Filter -->
+                    <div class="filter-group">
+                        <label for="category-select" class="filter-label">Category</label>
+                        <select id="category-select" class="select-control" aria-label="Filter by category">
+                            <!-- Populated dynamically via JS -->
+                        </select>
+                    </div>
+
+                    <!-- Listing-Type Segmented Filter Pills -->
+                    <div class="filter-group">
+                        <span class="filter-label">Transaction Options</span>
+                        <div class="type-pills" role="radiogroup" aria-label="Listing type filter">
+                            <button type="button" class="type-pill active" data-type="all" role="radio" aria-checked="true">
+                                All Listings
+                            </button>
+                            <button type="button" class="type-pill" data-type="both" role="radio" aria-checked="false">
+                                Buy & Rent Both
+                            </button>
+                            <button type="button" class="type-pill" data-type="buy" role="radio" aria-checked="false">
+                                Buy Only
+                            </button>
+                            <button type="button" class="type-pill" data-type="rent" role="radio" aria-checked="false">
+                                Rent Only
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Clear Filters Button -->
+                    <div class="filter-group">
+                        <button type="button" id="clear-filters-btn" class="btn-clear" aria-label="Clear all applied filters">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            Clear Filters
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Results Count & Active Status -->
+                <div class="filter-summary-row">
+                    <div id="results-count" class="results-count">
+                        <!-- Populated dynamically -->
+                    </div>
+                    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-accent);">
+                        Showing active seller inventory
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SWING-TAG CATALOG GRID -->
+        <section aria-label="Product Swing Tag Listings">
+            <div id="catalog-grid" class="catalog-grid">
+                <!-- Swing Tag cards dynamically injected here by script.js -->
+            </div>
+
+            <!-- EMPTY STATE CONTAINER -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+                <h3 class="empty-title">No swing tags found</h3>
+                <p class="empty-text">No pre-loved pieces match your active filter search. Try broadening your keywords or clearing selected filters.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= PRODUCT DETAIL MODAL ================= -->
+    <div id="modal-overlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-container">
+            <button id="modal-close-btn" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+            
+            <div class="modal-grid">
+                <div class="modal-image-col">
+                    <img id="modal-img" class="modal-img" src="" alt="" />
+                </div>
+
+                <div class="modal-info-col">
+                    <div id="modal-category" class="modal-category"></div>
+                    <h2 id="modal-title" class="modal-title"></h2>
+
+                    <div class="modal-seller-card">
+                        <div class="modal-seller-info">
+                            Seller: <strong id="modal-seller-name"></strong>
+                            <div id="modal-seller-city" style="font-size: 0.8rem; color: var(--text-muted-light);"></div>
+                        </div>
+                        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--gold-dark); background: rgba(212,175,55,0.15); padding: 4px 8px; border-radius: 4px;">
+                            Verified Seller
+                        </div>
+                    </div>
+
+                    <p id="modal-description" class="modal-description"></p>
+
+                    <div class="modal-options-title">Available Listing Options</div>
+                    <div id="modal-options-container" class="modal-options-list">
+                        <!-- Options injected dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-msg" class="toast-msg" role="status"></div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ThriftChain Vault. Pre-Loved Ethnic Couture & Antique Jewellery Resale/Rental Marketplace.</p>
+            <p class="footer-credits">Curated Sellers in Visakhapatnam • Vijayawada • Tirupati</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Data Layer & Application Logic -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
